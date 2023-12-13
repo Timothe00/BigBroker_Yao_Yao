@@ -1,0 +1,103 @@
+
+  <div class="d-flex">
+      <div class="row">
+        @for (broker of databrokers$ | async; track broker) {
+        <div class="col-3 mb-2">
+          <div class="card">
+            
+            <div class="card-body p-0 mt-4">
+              <div class="d-flex justify-content-between mx-2 mb-4">
+                <div>
+                  <img
+                    src="https://assets-global.website-files.com/64f9cc99e71db04ed5b890bd/64f9d0c16cddcbca2a417614_BigBroker_icon256.png"
+                    alt=""
+                    width="50"
+                    height="50"
+                  />
+                </div>
+                <div>
+                  <h5 class="card-title">{{ broker.title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    {{ broker.subtitle }}
+                  </h6>
+                  <p class="card-text">{{ broker.level }}</p>
+                </div>
+                <div>
+                  <img src="" alt="" width="50" height="50" />
+                </div>
+              </div>
+              @for (cour of broker.cours; track cour){
+              <div class="d-flex mx-2">
+                <p>{{ cour.title }}</p>
+                <div class="mx-2">
+                  <input
+                    type="range"
+                    value="{{ cour.percentage }}"
+                    class="form-range"
+                    id="customRange1"
+                  />
+                </div>
+                <p class="text-secod">{{ cour.percentage }}</p>
+              </div>
+              }
+
+              <div class="bg-second width-100">
+                <p class="py-2 text-dark text-center bord">£/mois</p>
+              </div>
+
+              <div class="d-flex justify-content-between mx-2">
+                <button type="button" class="text-white button button-option">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    style="height: 24px; width: 24px"
+                    class="plus-icon"
+                  >
+                    <title>plus</title>
+                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                  </svg>
+                  Options
+                </button>
+                <button type="button" class="btn button button-detail">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      style="height: 24px; width: 24px"
+                    >
+                      <title>eye-outline</title>
+                      <path
+                        d="M12,9A3,3 
+                          0 0,1 15,12A3,3 0 0,
+                          1 12,15A3,3 0 0,1 9,12A3,
+                          3 0 0,1 12,9M12,4.5C17,4.5 
+                          21.27,7.61 23,12C21.27,16.39 
+                          17,19.5 12,19.5C7,19.5 2.73,16.39 
+                          1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,
+                          15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,
+                          15.36 20.82,12C19.17,8.64 15.76,6.5 12,
+                          6.5C8.24,6.5 4.83,8.64 3.18,12Z"
+                      />
+                    </svg>
+                  </span>
+                  Détails
+                </button>
+              </div>
+            </div>
+            <div
+              class="card-footer d-flex text-center justify-content-center mt-3"
+            >
+              <input
+                class="form-check-input mt-1"
+                type="checkbox"
+                value=""
+                aria-label="Checkbox for following text input"
+              />
+              <p class="bord mx-2">Sélectionner</p>
+            </div>
+
+          </div>
+        </div>
+      }
+      </div>
+    </div>
